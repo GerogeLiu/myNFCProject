@@ -5,10 +5,10 @@ from .models import Customer, CustomerAccount, Store, Product,\
 
 # Register your models here.
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ("customerID", "customerName", "address", "phone", "email", "employeeID", "createTime")
-    list_filter = ("customerID", "customerName")
-    search_fields = ("customerID", "customerName")
-    ordering = ['customerID', 'customerName']
+    list_display = ("customer", "customerName", "address", "phone", "email", "employeeID", "createTime")
+    list_filter = ("customer", "customerName")
+    search_fields = ("customer", "customerName")
+    ordering = ['customer', 'customerName']
 
 
 class CustomerAccountAdmin(admin.ModelAdmin):

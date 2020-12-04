@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from django.utils.deconstruct import deconstructible
+# from django.utils.deconstruct import deconstructible
 from django.core.validators import MinLengthValidator
 from django.contrib.auth.models import User
 
@@ -38,7 +38,7 @@ class Product(models.Model):
     product = models.CharField(max_length=16, primary_key=True)
     productName = models.CharField(max_length=128)
     # 店铺内展示商品数量
-    productAmount = models.IntegerField(verbose_name="product_inventory", validators=[lambda x: x >= 0], default=0)
+    productAmount = models.PositiveIntegerField(verbose_name="product_inventory", default=0)
     # 商品所在的店铺
     store = models.ManyToManyField("Store")
 
@@ -51,11 +51,48 @@ class ProductDetail(models.Model):
     style = models.CharField(max_length=64)
     size = models.CharField(max_length=32)
 
-# 订单
+# 用户下单, 客户接到相应的订单
+# 是将订单交给 warehouse 处理 或 某个其他供应商
 class Orders(models.Model):
-    order = models.OneToOneField("EndUserOrder", auto_created=True)
+    SUPPLIER_CHOICES = [
+        ('WH', "WAREHOUSE"),
+        ('ETC', "OTHERS")
+    ]
+    order = models.OneToOneField("EndUserOrders", auto_created=True, primary_key=True)
+    supplier = models.CharField(max_length=3, choices=SUPPLIER_CHOICES, default='WH')
+    # 如果 supplier 为 warehouse 则将订单交给 warehouse 这时 logistics 为 null
+    # 一张订单可能涉及到多个物流信息, 一个物流信息可能包含多个订单， 所以是多对多的关系
+    logistics = models.ManyToManyField("Logistics", null=True)
 
 
+# 物流信息
+class Logistics(models.Model):
+    # 物流单号
+    logistics = models.CharField(max_length=128, primary_key=True)
+    # 联系人， 地址， 电话
+    contact = models.CharField(max_length=64)
+    address = models.CharField(max_length=256)
+    phone = models.CharField(max_length=11, validators=[MinLengthValidator(11)])
+    # 物流费用
+    rate = models.DecimalField(verbose_name="费用", max_digits=5, decimal_places=2)
+    # 物品信息
+    goods = models.ForeignKey("GoodsInfo")
+
+
+# 物品信息
+class GoodsInfo(models.Model):
+    type = models.CharField(max_length=32, default='general')
+    size = models.DecimalField(max_digits=5, decimal_places=2)
+    weight = models.DecimalField(max_digits=7, decimal_places=2)
+
+# 物流信息
+class LogisticsInfo(models.Model):
+    logistics = models.OneToOneField("Logistics", auto_created=True, primary_key=True)
+    # 物品当前所在位置
+    currentPosition = models.CharField(max_length=256)
+    currentTime = models.DateTimeField(default=timezone.now)
+    # 预计到达时间 以小时为单位
+    estimateArrivalTime = models.DecimalField(default=0, max_digits=5, decimal_places=1)
 
 # 上架的商品
 '''
@@ -68,7 +105,7 @@ class StoreProduct(models.Model):
 class Warehouse(models.Model):
     warehouse = models.CharField(max_length=16, primary_key=True)
     warehouseName = models.CharField(max_length=64)
-    warehouseLocation = models.CharField(max_length=128)
+    warehouseLocation = models.CharField(max_length=128, unique=True)
 
 # 商品放入warehouse的库存清单中
 class Inventory(models.Model):
@@ -84,7 +121,8 @@ class Inventory(models.Model):
 # 当客户将订单发给 warehouse, warehouse 会处理相应的订单
 # warehouse 将货物交由物流公司进行运输
 class WarehouseOrders(models.Model):
-
+    order = models.OneToOneField("Orders", primary_key=True)
+    logistics = models.ManyToManyField("Logistics", null=True)
 
 
 # 终端用户
@@ -101,13 +139,15 @@ class EndUserProfile(models.Model):
     address = models.CharField(max_length=512, null=True)
     phone = models.CharField(max_length=11, validators=[MinLengthValidator(11)])
 
-
+# 用户下单
 class EndUserOrders(models.Model):
     order = models.CharField(max_length=16, primary_key=True)
     # 下单的用户
     user = models.ForeignKey("EndUser")
     # 订单配送地址
     delivery_address = models.CharField(max_length=512)
+    # 联系电话
+    phone = models.CharField(max_length=11, validators=[MinLengthValidator(11)])
     # 下单的商品
     product = models.ForeignKey("Product")
 
