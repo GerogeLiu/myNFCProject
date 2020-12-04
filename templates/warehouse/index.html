@@ -1,0 +1,23 @@
+{% extends "warehouse/base.html" %}
+
+{% block title %}NFC{% endblock %}
+
+{% block content %}
+
+<div class="row text-center vertical-middle-sm">
+    <h1> Newark Filfullment Center Customer Management</h1>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <h2>LIST OF CUSTOMERS</h2>
+        <ul>
+            {% for customer in customers %}
+            <li>
+                <a href="#">{{customer.customerID}} - {{customer.customerName}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

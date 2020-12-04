@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import Customer, CustomerAccount, Store, Product,\
-    ProductDetail, StoreProduct
+    ProductDetail
 
 # Register your models here.
 class CustomerAdmin(admin.ModelAdmin):
@@ -21,4 +21,4 @@ admin.site.register(CustomerAccount, CustomerAccountAdmin)
 admin.site.register(Store)
 admin.site.register(Product)
 admin.site.register(ProductDetail)
-admin.site.register(StoreProduct)
+# admin.site.register(StoreProduct)
