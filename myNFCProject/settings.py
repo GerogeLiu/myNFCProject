@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'NFCdb', 
         'USER': 'root',
-        'PASSWORD': 'ljc13197880069',  # 修改成你的mysql密码
+        'PASSWORD': 'yourpassword',  # 修改成你的mysql密码
         'HOST': 'localhost',
         'PORT': '3306',
     }
