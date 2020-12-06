@@ -1,0 +1,16 @@
+{% extends "warehouse/base.html" %}
+
+{% block title %}Customer Login{% endblock %}
+
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+    <h1>Customer Login</h1>
+    <p>Input your username and password</p>
+    <form action="." method="post" class="form-horizontal">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+{% endblock %}

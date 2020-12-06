@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<div class="container">
+    <nav class="nav nav-default" role="navigation">
+        <div class="navbar-header">
+            <a href="{% url 'warehouse:index' %}}" class="navbar-brand">
+                <img src="{% static '/images/logo.png' %}" alt="logo" width="100px">
+            </a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav" role="navigation">
+                <li><a href="#">Customer</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">LOGIN</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>

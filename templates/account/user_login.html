@@ -1,0 +1,33 @@
+{% extends "warehouse/base.html" %}
+
+{% block title %}User Login{% endblock %}
+
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+    <h1>User Login</h1>
+    <p>Input your username and password</p>
+    <form action="." method="post" class="form-horizontal">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>
+            <span style="font-weight: bold;">验证码：</span>  
+            <input type="text" name="checkcode" style="width: 50px;">{{ err_checkcode }}
+            <span>
+                <img src="/account/checkcode.html" onclick="changeCheckcode(this)">
+            </span>
+        </p>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+    function changeCheckcode(ths) {
+        console.log(ths.src);
+        ths.src = ths.src + '?';
+    }
+</script>
+
+{% endblock %}

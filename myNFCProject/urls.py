@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^favicon.ico$', RedirectView.as_view(url=r'static/favicon.ico')),
     url(r'^nfcenter/', include('warehouse.urls', namespace='warehouse', app_name='warehouse')),
+    url(r'^account/', include("account.urls", namespace='account', app_name='account')),
 ]
