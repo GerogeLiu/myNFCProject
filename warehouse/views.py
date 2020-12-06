@@ -9,4 +9,3 @@ def index(request):
 def customerLogin(request, customerID):
     # customer = CustomerAccount.objects.get(id=customerID)
     return render(request, "warehouse/customerLogin.html", {"customer": customerID})
-    # return render(request, "warehouse/customerLogin.html")

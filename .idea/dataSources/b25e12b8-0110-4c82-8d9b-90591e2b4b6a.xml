@@ -1116,5 +1116,1196 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
+    <table id="281" parent="8" name="auth_group"/>
+    <table id="282" parent="8" name="auth_group_permissions"/>
+    <table id="283" parent="8" name="auth_permission"/>
+    <table id="284" parent="8" name="auth_user"/>
+    <table id="285" parent="8" name="auth_user_groups"/>
+    <table id="286" parent="8" name="auth_user_user_permissions"/>
+    <table id="287" parent="8" name="django_admin_log"/>
+    <table id="288" parent="8" name="django_content_type"/>
+    <table id="289" parent="8" name="django_migrations"/>
+    <table id="290" parent="8" name="django_session"/>
+    <table id="291" parent="8" name="warehouse_customer"/>
+    <table id="292" parent="8" name="warehouse_customeraccount"/>
+    <table id="293" parent="8" name="warehouse_enduser"/>
+    <table id="294" parent="8" name="warehouse_enduserorders"/>
+    <table id="295" parent="8" name="warehouse_enduserprofile"/>
+    <table id="296" parent="8" name="warehouse_goodsinfo"/>
+    <table id="297" parent="8" name="warehouse_inventory"/>
+    <table id="298" parent="8" name="warehouse_logistics"/>
+    <table id="299" parent="8" name="warehouse_logisticsinfo"/>
+    <table id="300" parent="8" name="warehouse_orders"/>
+    <table id="301" parent="8" name="warehouse_orders_logistics"/>
+    <table id="302" parent="8" name="warehouse_product"/>
+    <table id="303" parent="8" name="warehouse_product_store"/>
+    <table id="304" parent="8" name="warehouse_productdetail"/>
+    <table id="305" parent="8" name="warehouse_store"/>
+    <table id="306" parent="8" name="warehouse_warehouse"/>
+    <table id="307" parent="8" name="warehouse_warehouseorders"/>
+    <table id="308" parent="8" name="warehouse_warehouseorders_logistics"/>
+    <column id="309" parent="281" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="310" parent="281" name="name">
+      <Position>2</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="311" parent="281" name="name">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="312" parent="281" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="313" parent="281" name="name">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>name</UnderlyingIndexName>
+    </key>
+    <column id="314" parent="282" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="315" parent="282" name="group_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="316" parent="282" name="permission_id">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="317" parent="282" name="auth_group_permissions_group_id_0cd325b0_uniq">
+      <ColNames>group_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="318" parent="282" name="auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id">
+      <ColNames>permission_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="319" parent="282" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="320" parent="282" name="auth_group_permissions_group_id_0cd325b0_uniq">
+      <ColNames>group_id
+permission_id</ColNames>
+      <UnderlyingIndexName>auth_group_permissions_group_id_0cd325b0_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="321" parent="282" name="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id">
+      <ColNames>group_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>auth_group</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="322" parent="282" name="auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id">
+      <ColNames>permission_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>auth_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="323" parent="283" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="324" parent="283" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="325" parent="283" name="content_type_id">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="326" parent="283" name="codename">
+      <Position>4</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="327" parent="283" name="auth_permission_content_type_id_01ab375a_uniq">
+      <ColNames>content_type_id
+codename</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="328" parent="283" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="329" parent="283" name="auth_permission_content_type_id_01ab375a_uniq">
+      <ColNames>content_type_id
+codename</ColNames>
+      <UnderlyingIndexName>auth_permission_content_type_id_01ab375a_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="330" parent="283" name="auth_permissi_content_type_id_2f476e4b_fk_django_content_type_id">
+      <ColNames>content_type_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>django_content_type</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="331" parent="284" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="332" parent="284" name="password">
+      <Position>2</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="333" parent="284" name="last_login">
+      <Position>3</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="334" parent="284" name="is_superuser">
+      <Position>4</Position>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="335" parent="284" name="username">
+      <Position>5</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="336" parent="284" name="first_name">
+      <Position>6</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="337" parent="284" name="last_name">
+      <Position>7</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="338" parent="284" name="email">
+      <Position>8</Position>
+      <DataType>varchar(254)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="339" parent="284" name="is_staff">
+      <Position>9</Position>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="340" parent="284" name="is_active">
+      <Position>10</Position>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="341" parent="284" name="date_joined">
+      <Position>11</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="342" parent="284" name="username">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="343" parent="284" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="344" parent="284" name="username">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>username</UnderlyingIndexName>
+    </key>
+    <column id="345" parent="285" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="346" parent="285" name="user_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="347" parent="285" name="group_id">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="348" parent="285" name="auth_user_groups_user_id_94350c0c_uniq">
+      <ColNames>user_id
+group_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="349" parent="285" name="auth_user_groups_group_id_97559544_fk_auth_group_id">
+      <ColNames>group_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="350" parent="285" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="351" parent="285" name="auth_user_groups_user_id_94350c0c_uniq">
+      <ColNames>user_id
+group_id</ColNames>
+      <UnderlyingIndexName>auth_user_groups_user_id_94350c0c_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="352" parent="285" name="auth_user_groups_user_id_6a12ed8b_fk_auth_user_id">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="353" parent="285" name="auth_user_groups_group_id_97559544_fk_auth_group_id">
+      <ColNames>group_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>auth_group</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="354" parent="286" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="355" parent="286" name="user_id">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="356" parent="286" name="permission_id">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="357" parent="286" name="auth_user_user_permissions_user_id_14a6b632_uniq">
+      <ColNames>user_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="358" parent="286" name="auth_user_user_perm_permission_id_1fbb5f2c_fk_auth_permission_id">
+      <ColNames>permission_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="359" parent="286" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="360" parent="286" name="auth_user_user_permissions_user_id_14a6b632_uniq">
+      <ColNames>user_id
+permission_id</ColNames>
+      <UnderlyingIndexName>auth_user_user_permissions_user_id_14a6b632_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="361" parent="286" name="auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="362" parent="286" name="auth_user_user_perm_permission_id_1fbb5f2c_fk_auth_permission_id">
+      <ColNames>permission_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>auth_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="363" parent="287" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="364" parent="287" name="action_time">
+      <Position>2</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="365" parent="287" name="object_id">
+      <Position>3</Position>
+      <DataType>longtext|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="366" parent="287" name="object_repr">
+      <Position>4</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="367" parent="287" name="action_flag">
+      <Position>5</Position>
+      <DataType>smallint(5) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="368" parent="287" name="change_message">
+      <Position>6</Position>
+      <DataType>longtext|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="369" parent="287" name="content_type_id">
+      <Position>7</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="370" parent="287" name="user_id">
+      <Position>8</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="371" parent="287" name="django_admin__content_type_id_c4bce8eb_fk_django_content_type_id">
+      <ColNames>content_type_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="372" parent="287" name="django_admin_log_user_id_c564eba6_fk_auth_user_id">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="373" parent="287" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="374" parent="287" name="django_admin__content_type_id_c4bce8eb_fk_django_content_type_id">
+      <ColNames>content_type_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>django_content_type</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="375" parent="287" name="django_admin_log_user_id_c564eba6_fk_auth_user_id">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="376" parent="288" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="377" parent="288" name="app_label">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="378" parent="288" name="model">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="379" parent="288" name="django_content_type_app_label_76bd3d3b_uniq">
+      <ColNames>app_label
+model</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="380" parent="288" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="381" parent="288" name="django_content_type_app_label_76bd3d3b_uniq">
+      <ColNames>app_label
+model</ColNames>
+      <UnderlyingIndexName>django_content_type_app_label_76bd3d3b_uniq</UnderlyingIndexName>
+    </key>
+    <column id="382" parent="289" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="383" parent="289" name="app">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="384" parent="289" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="385" parent="289" name="applied">
+      <Position>4</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="386" parent="289" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="387" parent="290" name="session_key">
+      <Position>1</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="388" parent="290" name="session_data">
+      <Position>2</Position>
+      <DataType>longtext|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="389" parent="290" name="expire_date">
+      <Position>3</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="390" parent="290" name="django_session_de54fa62">
+      <ColNames>expire_date</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="391" parent="290" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>session_key</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="392" parent="291" name="customer">
+      <Position>1</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="393" parent="291" name="customerName">
+      <Position>2</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="394" parent="291" name="address">
+      <Position>3</Position>
+      <DataType>varchar(1024)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="395" parent="291" name="phone">
+      <Position>4</Position>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="396" parent="291" name="email">
+      <Position>5</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="397" parent="291" name="createTime">
+      <Position>6</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="398" parent="291" name="employeeID_id">
+      <Position>7</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="399" parent="291" name="warehouse_customer_827a807f">
+      <ColNames>employeeID_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="400" parent="291" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customer</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="401" parent="291" name="warehouse_customer_employeeID_id_352ee6b2_fk_auth_user_id">
+      <ColNames>employeeID_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>auth_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="402" parent="292" name="customer_id">
+      <Position>1</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="403" parent="292" name="customerUserName">
+      <Position>2</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="404" parent="292" name="customerPassword">
+      <Position>3</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="405" parent="292" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customer_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="406" parent="292" name="warehouse_cu_customer_id_511cb551_fk_warehouse_customer_customer">
+      <ColNames>customer_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_customer</RefTableName>
+      <RefColNames>customer</RefColNames>
+    </foreign-key>
+    <column id="407" parent="293" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="408" parent="293" name="user">
+      <Position>2</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="409" parent="293" name="userName">
+      <Position>3</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="410" parent="293" name="password">
+      <Position>4</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="411" parent="293" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="412" parent="294" name="order">
+      <Position>1</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="413" parent="294" name="delivery_address">
+      <Position>2</Position>
+      <DataType>varchar(512)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="414" parent="294" name="phone">
+      <Position>3</Position>
+      <DataType>varchar(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="415" parent="294" name="product_id">
+      <Position>4</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="416" parent="294" name="user_id">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="417" parent="294" name="warehouse_enduserorders_9bea82de">
+      <ColNames>product_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="418" parent="294" name="warehouse_enduserorders_e8701ad4">
+      <ColNames>user_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="419" parent="294" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>order</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="420" parent="294" name="warehouse_endus_product_id_472571cb_fk_warehouse_product_product">
+      <ColNames>product_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_product</RefTableName>
+      <RefColNames>product</RefColNames>
+    </foreign-key>
+    <foreign-key id="421" parent="294" name="warehouse_enduserorders_user_id_2278b3b0_fk_warehouse_enduser_id">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_enduser</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="422" parent="295" name="user_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="423" parent="295" name="gender">
+      <Position>2</Position>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="424" parent="295" name="birth">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="425" parent="295" name="address">
+      <Position>4</Position>
+      <DataType>varchar(512)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="426" parent="295" name="phone">
+      <Position>5</Position>
+      <DataType>varchar(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="427" parent="295" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="428" parent="295" name="warehouse_enduserprofil_user_id_1d8af3cb_fk_warehouse_enduser_id">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_enduser</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="429" parent="296" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="430" parent="296" name="type">
+      <Position>2</Position>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="431" parent="296" name="size">
+      <Position>3</Position>
+      <DataType>decimal(5,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="432" parent="296" name="weight">
+      <Position>4</Position>
+      <DataType>decimal(7,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="433" parent="296" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="434" parent="297" name="inventory">
+      <Position>1</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="435" parent="297" name="inventoryProductAmount">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="436" parent="297" name="location_id">
+      <Position>3</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="437" parent="297" name="product_id">
+      <Position>4</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="438" parent="297" name="warehouse_inventory_e274a5da">
+      <ColNames>location_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="439" parent="297" name="warehouse_inventory_9bea82de">
+      <ColNames>product_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="440" parent="297" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>inventory</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="441" parent="297" name="wa_location_id_650ca92a_fk_warehouse_warehouse_warehouseLocation">
+      <ColNames>location_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_warehouse</RefTableName>
+      <RefColNames>warehouseLocation</RefColNames>
+    </foreign-key>
+    <foreign-key id="442" parent="297" name="warehouse_inven_product_id_cae4e192_fk_warehouse_product_product">
+      <ColNames>product_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_product</RefTableName>
+      <RefColNames>product</RefColNames>
+    </foreign-key>
+    <column id="443" parent="298" name="logistics">
+      <Position>1</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="444" parent="298" name="contact">
+      <Position>2</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="445" parent="298" name="address">
+      <Position>3</Position>
+      <DataType>varchar(256)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="446" parent="298" name="phone">
+      <Position>4</Position>
+      <DataType>varchar(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="447" parent="298" name="rate">
+      <Position>5</Position>
+      <DataType>decimal(5,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="448" parent="298" name="goods_id">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="449" parent="298" name="warehouse_logistics_6753b66e">
+      <ColNames>goods_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="450" parent="298" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>logistics</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="451" parent="298" name="warehouse_logistics_goods_id_e4a18edb_fk_warehouse_goodsinfo_id">
+      <ColNames>goods_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_goodsinfo</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="452" parent="299" name="logistics_id">
+      <Position>1</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="453" parent="299" name="currentPosition">
+      <Position>2</Position>
+      <DataType>varchar(256)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="454" parent="299" name="currentTime">
+      <Position>3</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="455" parent="299" name="estimateArrivalTime">
+      <Position>4</Position>
+      <DataType>decimal(5,1 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="456" parent="299" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>logistics_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="457" parent="299" name="warehouse_logistics_id_9ce2e8ec_fk_warehouse_logistics_logistics">
+      <ColNames>logistics_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_logistics</RefTableName>
+      <RefColNames>logistics</RefColNames>
+    </foreign-key>
+    <column id="458" parent="300" name="order_id">
+      <Position>1</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="459" parent="300" name="supplier">
+      <Position>2</Position>
+      <DataType>varchar(3)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="460" parent="300" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>order_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="461" parent="300" name="warehouse_ord_order_id_de1560fc_fk_warehouse_enduserorders_order">
+      <ColNames>order_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_enduserorders</RefTableName>
+      <RefColNames>order</RefColNames>
+    </foreign-key>
+    <column id="462" parent="301" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="463" parent="301" name="orders_id">
+      <Position>2</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="464" parent="301" name="logistics_id">
+      <Position>3</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="465" parent="301" name="warehouse_orders_logistics_orders_id_3e7c69ce_uniq">
+      <ColNames>orders_id
+logistics_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="466" parent="301" name="warehouse_logistics_id_a85964ab_fk_warehouse_logistics_logistics">
+      <ColNames>logistics_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="467" parent="301" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="468" parent="301" name="warehouse_orders_logistics_orders_id_3e7c69ce_uniq">
+      <ColNames>orders_id
+logistics_id</ColNames>
+      <UnderlyingIndexName>warehouse_orders_logistics_orders_id_3e7c69ce_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="469" parent="301" name="warehouse_orders_orders_id_41df354f_fk_warehouse_orders_order_id">
+      <ColNames>orders_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_orders</RefTableName>
+      <RefColNames>order_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="470" parent="301" name="warehouse_logistics_id_a85964ab_fk_warehouse_logistics_logistics">
+      <ColNames>logistics_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_logistics</RefTableName>
+      <RefColNames>logistics</RefColNames>
+    </foreign-key>
+    <column id="471" parent="302" name="product">
+      <Position>1</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="472" parent="302" name="productName">
+      <Position>2</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="473" parent="302" name="productAmount">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="474" parent="302" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>product</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="475" parent="303" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="476" parent="303" name="product_id">
+      <Position>2</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="477" parent="303" name="store_id">
+      <Position>3</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="478" parent="303" name="warehouse_product_store_product_id_d8d71aea_uniq">
+      <ColNames>product_id
+store_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="479" parent="303" name="warehouse_product_sto_store_id_598e0688_fk_warehouse_store_store">
+      <ColNames>store_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="480" parent="303" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="481" parent="303" name="warehouse_product_store_product_id_d8d71aea_uniq">
+      <ColNames>product_id
+store_id</ColNames>
+      <UnderlyingIndexName>warehouse_product_store_product_id_d8d71aea_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="482" parent="303" name="warehouse_produ_product_id_eb19c20f_fk_warehouse_product_product">
+      <ColNames>product_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_product</RefTableName>
+      <RefColNames>product</RefColNames>
+    </foreign-key>
+    <foreign-key id="483" parent="303" name="warehouse_product_sto_store_id_598e0688_fk_warehouse_store_store">
+      <ColNames>store_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_store</RefTableName>
+      <RefColNames>store</RefColNames>
+    </foreign-key>
+    <column id="484" parent="304" name="product_id">
+      <Position>1</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="485" parent="304" name="color">
+      <Position>2</Position>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="486" parent="304" name="style">
+      <Position>3</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="487" parent="304" name="size">
+      <Position>4</Position>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="488" parent="304" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>product_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="489" parent="304" name="warehouse_produ_product_id_1b533311_fk_warehouse_product_product">
+      <ColNames>product_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_product</RefTableName>
+      <RefColNames>product</RefColNames>
+    </foreign-key>
+    <column id="490" parent="305" name="store">
+      <Position>1</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="491" parent="305" name="storeName">
+      <Position>2</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="492" parent="305" name="customerID_id">
+      <Position>3</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="493" parent="305" name="warehouse_store_2553112c">
+      <ColNames>customerID_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="494" parent="305" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>store</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="495" parent="305" name="warehouse__customerID_id_d3dcb6ec_fk_warehouse_customer_customer">
+      <ColNames>customerID_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_customer</RefTableName>
+      <RefColNames>customer</RefColNames>
+    </foreign-key>
+    <column id="496" parent="306" name="warehouse">
+      <Position>1</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="497" parent="306" name="warehouseName">
+      <Position>2</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="498" parent="306" name="warehouseLocation">
+      <Position>3</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="499" parent="306" name="warehouseLocation">
+      <ColNames>warehouseLocation</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="500" parent="306" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>warehouse</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="501" parent="306" name="warehouseLocation">
+      <ColNames>warehouseLocation</ColNames>
+      <UnderlyingIndexName>warehouseLocation</UnderlyingIndexName>
+    </key>
+    <column id="502" parent="307" name="order_id">
+      <Position>1</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="503" parent="307" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>order_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="504" parent="307" name="warehouse_warehou_order_id_9eeacdc0_fk_warehouse_orders_order_id">
+      <ColNames>order_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_orders</RefTableName>
+      <RefColNames>order_id</RefColNames>
+    </foreign-key>
+    <column id="505" parent="308" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="506" parent="308" name="warehouseorders_id">
+      <Position>2</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="507" parent="308" name="logistics_id">
+      <Position>3</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="508" parent="308" name="warehouse_warehouseorders_logis_warehouseorders_id_190891f5_uniq">
+      <ColNames>warehouseorders_id
+logistics_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="509" parent="308" name="warehouse_logistics_id_b0f9ada7_fk_warehouse_logistics_logistics">
+      <ColNames>logistics_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="510" parent="308" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="511" parent="308" name="warehouse_warehouseorders_logis_warehouseorders_id_190891f5_uniq">
+      <ColNames>warehouseorders_id
+logistics_id</ColNames>
+      <UnderlyingIndexName>warehouse_warehouseorders_logis_warehouseorders_id_190891f5_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="512" parent="308" name="D551806e67507a10eeeb7a883f1e8371">
+      <ColNames>warehouseorders_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_warehouseorders</RefTableName>
+      <RefColNames>order_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="513" parent="308" name="warehouse_logistics_id_b0f9ada7_fk_warehouse_logistics_logistics">
+      <ColNames>logistics_id</ColNames>
+      <RefSchemaName>nfcdb</RefSchemaName>
+      <RefTableName>warehouse_logistics</RefTableName>
+      <RefColNames>logistics</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

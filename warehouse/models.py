@@ -26,6 +26,7 @@ class CustomerAccount(models.Model):
     def __str__(self):
         return self.customerUserName
 
+# 客户开店
 class Store(models.Model):
     store = models.CharField(max_length=16, primary_key=True)
     storeName = models.CharField(max_length=128)
@@ -34,6 +35,7 @@ class Store(models.Model):
     def __str__(self):
         return self.store
 
+# 店铺内上架商品
 class Product(models.Model):
     product = models.CharField(max_length=16, primary_key=True)
     productName = models.CharField(max_length=128)
@@ -45,6 +47,7 @@ class Product(models.Model):
     def __str__(self):
         return self.product
 
+# 商品详情
 class ProductDetail(models.Model):
     product = models.OneToOneField("Product", auto_created=True, on_delete=models.CASCADE, primary_key=True, default=None)
     color = models.CharField(max_length=32)
@@ -62,7 +65,7 @@ class Orders(models.Model):
     supplier = models.CharField(max_length=3, choices=SUPPLIER_CHOICES, default='WH')
     # 如果 supplier 为 warehouse 则将订单交给 warehouse 这时 logistics 为 null
     # 一张订单可能涉及到多个物流信息, 一个物流信息可能包含多个订单， 所以是多对多的关系
-    logistics = models.ManyToManyField("Logistics", null=True)
+    logistics = models.ManyToManyField("Logistics")
 
 
 # 物流信息
@@ -122,7 +125,7 @@ class Inventory(models.Model):
 # warehouse 将货物交由物流公司进行运输
 class WarehouseOrders(models.Model):
     order = models.OneToOneField("Orders", primary_key=True)
-    logistics = models.ManyToManyField("Logistics", null=True)
+    logistics = models.ManyToManyField("Logistics")
 
 
 # 终端用户
